@@ -15,6 +15,7 @@ addLayer("Pr", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if(hasUpgrade("Pr", 11)) gain = gain.mul(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -27,9 +28,9 @@ addLayer("Pr", {
     layerShown(){return true},
     upgrades: {
         11: {
-            title: "Boost Generation",
-            description: "Double your quark gain.",
-            cost: new Decimal(1),
+    title: "Boost Generation",
+    description: "Double your quark gain.",
+    cost: new Decimal(1),
         },
     },
 })
